@@ -1,5 +1,5 @@
 ﻿$Output = Invoke-RestMethod https://api.github.com/repos/pulumi/pulumi/pulls?state=all
-$LastSevenDaysPRs = $Output | Where-Object {[DateTime]($_.created_at) -gt  (Get-Date).AddDays(-7)} `
+$LastSevenDaysPRs = $Output | Where-Object {[DateTime]($_.created_at) -gt (Get-Date).AddDays(-7)} `
                     | select created_at,state,html_url,title
 
 Write-Output $LastSevenDaysPRs
